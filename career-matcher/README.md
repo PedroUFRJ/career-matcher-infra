@@ -4,13 +4,6 @@ Trabalho final da disciplina de Algoritmos e Grafos | 2025.2 | UFRJ - Universida
 **Título: Criando um sistema que encontra a combinação ótima e estável entre Candidatos (via dados de seus currículos) e
 Vagas (dadas as descrições e requisitos) baseado em Grafos**.
 
-Primeiramente, como este trabalho está organizado? Este presente documento centraliza os demais. Aqui, o problema e a
-solução serão apresentados e documentados, bem como as motivações para as escolhas feitas.
-Este repositório contém o Back-End da aplicação bem como os scripts utilizados para criar a instância do banco de dados
-no Neo4J, incluindo suas respectivas documentações. Acesse "DATABASE.md" para obter mais detalhes sobre o banco de dados,
-SGBD, a modelagem e demais informações.
-Outro repositório foi criado para o Front-End da aplicação e pode ser acessado aqui: 
-
 O Problema dos Casamentos Estáveis
 O problema dos casamentos estáveis é um clássico problema de alocação ótima e justa dadas 2 entidades.
 Suponha um grafo bipartido, isto é, um grafo composto por 2 partições. Cada partição do grafo representa uma entidade,
@@ -23,4 +16,21 @@ exigências dos hospitais e vice-versa.
 A Solução
 Esta aplicação visa se beneficiar dos casamentos estáveis realizando a alocação de vagas para candidatos (e de candidatos para vagas).
 A primeira partição do grafo representa os candidatos sendo representados a partir de dados de seus currículos. Na outra partição, as vagas
+
 são representadas dadas as suas exigências e características 
+
+**Sobre a infraestrutura:**
+
+Desenvolvemos uma arquitetura disponível tanto localmente, quanto na internet. 
+Para disponibilizar na internet, desenvolvemos esse código que consome querys do banco e que interage com as dependências da lambda.
+Esse código pega todos os dados do banco e consegue fazer filtros com base nas necessidades do front.
+Um exemplo de filtro seria {
+  "filters": {
+    "cargo":["Compliance"]
+  }
+}
+
+Além disso, ele entrega no formato necessário para consumo.
+
+TODO: Em uma arquitetura paga o banco tem que ir para a rede privada e temos que habilitar o WAF, além de possivelmente rodar o backend do candidatoescolhido sem ser localmente
+TODO possível: desenvolver toda infra em IAC para ser de simples implementação.
