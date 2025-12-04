@@ -30,11 +30,12 @@ Um exemplo de filtro seria {
   }
 }
 
-Além disso, ele entrega no formato necessário para consumo.
+Além disso, ele entrega no formato necessário para consumo via requisições no link do API gateway.
 
 TODO: Em uma arquitetura paga o banco tem que ir para a rede privada e temos que habilitar o WAF, além de possivelmente rodar o backend do candidatoescolhido sem ser localmente
 
 TODO possível: desenvolver toda infra em IAC para ser de simples implementação.
 
 OBS: Credenciais do banco estão escondidas no .env da lambda da própria aws
+
 
